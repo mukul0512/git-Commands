@@ -11,11 +11,13 @@
           list-style-type: disc;
           background:  #3399ff;
           padding: 20px;
+          margin: 34px;
       }
       ul .b{
           list-style-type: disc;
           background: #ff9999;
           padding: 20px;
+          margin: 34px;
       }
   </style>
   <body>
@@ -34,5 +36,269 @@
         <li>cd- also known as chdir (change directory), is a command-line shell command used to change the current working directory in various operating systems.</li>
         <li>clear- is used to bring the command line on top of the computer terminal.</li>
     </ul>
+    <br>
+1- What is git?
+2- What is github (gitlab,bitbucket etc..)?
+- Some important term- 
+a- Repository
+b- Hosting
+c- Versining
+d- GUI
+e- Branches (master, develop etc..)
+f- commits
+3- Some important git commands
+a- git clone
+b- git status
+c- git add
+d- git commit
+e- git push
+f- git chekout
+g- git branch
+h- git merge (advance)
+4- Some important terminal commands
+a- pwd
+b- ls
+c- cd
+d- clear
+
+=======================================================================================================================================================
+
+# git bash(terminal commands)
+1-cd (directory name) eg-desctop,local disk (C:),(D:),(E:),(F:)
+2-git config --global user.name "Mukul Karnwal"
+3-git  config --global user.email "karnwal.mukul@gmail.com"
+4-git config --list
+# If you want to know your name-
+ -git config user.name
+ -git config user.email
+-------------------------------------------------------------------
+
+1-git status (fatal: not a git repository)
+2-git init(for making a git repository)
+3-git status
+4-git add --a or git add .(staging your all changes in all files)
+5-git status
+6-git commit -m "Initial commit"
+7-git status
+8-git log(to shown all your commit)
+# Now if you change something in your file-
+ -git status
+# In case you want to add only one or two file onto the staging area and ignoring other file which are modified-
+ -git add (perticular file name)
+ -git status
+ -git commit -m "Changed (file name) and add better design"
+ -git status
+----------------------------------------------------------------------------------------------------------------------
+
+# Note-(This is a linux based command)
+ -rm -rf .git(for deleting git repository)
+ -git status (fatal: not a git repository)
+# Copy the code of any repository from GitHub
+ -git clone (HTTPS//paste here of the copied code)  
+ -git status
+ -git add --a or git add .
+ -git commit -m "Your commit"
+ -git status 
+------------------------------------------------------------------
+-----------------------------------------------------------------
+ -git status (fatal: not a git repository)
+ -git init(for making a git repository)
+ -git status
+ -git add --a or git add .(staging your all changes in all files)
+ -git status
+ -git commit -m "Initial commit"
+ -git status
+ -touch error.log (to generate blank file in lenux)
+ -git status(here shows error.log is an untarackrd file)
+# In case you does not need error.log file then-
+ -touch .gitignore(new blank file generated)
+ The files under the .gitignore file are to be ignored by using the above command.
+# You just type those file name which you want to be ignored under the .gitignore file. 
+ -git status
+# Now you can see only .gitignore file and the error.log file should be ignored.
+ -git add --a or git add .
+ -git status
+ -git commit -m "Added .gitignore"
+ -git status
+# Now if any changed in error.log even then not be seen here.
+ -git status(no changes will be shown)
+# In case there are more error.log files and you does not need any then-
+ -Type *.log on .gitignore file(results all .log file or folder are ignored)
+ -git status
+# If you don't want to track any folder whose name is dir/then---
+ -Type dir/ on .gitignored(ignored all dir/ named folder)
+ -git status
+ -Type /dir/ on .gitignored(if another folder under dir/ folder are to be ignored)
+# You can ignored any type of file,folder etc just type the name of that(eg-static/,dir/,.log,*.log etc) on .gitignore 
+ -git status
+ -git add .
+ -git status
+# edit on working directory after staging them-
+ -git status( if any file shown changes not staged for commit)
+ -git diff(shows comparing between staging directory to the working directory)
+ -git status
+ -git add .
+ -git status
+ -git diff (shows nothing here)
+ -git diff --staged(comparing your previous commit to the current staging directory) 
+ -git status
+ -git commit -m "This is a good commit"
+ -git status
+# edit something in working directory and adding a new file -
+ -git status( shows your new file are untracked)
+ -git commit -a -m "Direct commit"
+ -git status(your untaracked file till not goes on staging area)
+# The above command commit only tracked files on staging area.
+ -git add (untracked file name)
+ -git status(your new file are to be staged now)
+ -git commit -a -m "added new file"
+ -git status
+ -git log(shows your all previous commit)
+# Renaming any file and adding a new file-
+ -git status(shows renamed file are to be deleted and a new untracked file)
+ -git add .
+ -git status(shows renamed file are in staging area)
+ -git commit -m "rename a file to other"
+ -git status
+ -git rm (another file name)- To remove a file
+ -git status
+ -git commit -m "removed a file"
+ -git status
+ -git mv (old file name) (renamed file name)
+ -git status
+ -git commit -m "Renamed file"
+ -git status
+# In case you want to untracked a tracked file which are modified and in .gitignore directory-
+ -git rm --cached (tracked file name)
+ -git status( that file are now untracked and changes are to be staged)
+ -git commit -m "removed file"
+ -git status(now even you changed anything under .gitignored directory then ready to commit now)
+--------------------------------------------------------------------------------------------------
+ -git add .
+ -git commit -m "bug has been fixed"
+ -git status
+ -rm -rf .git(for deleting the git repository)
+ -git status(fatal: not a git repository)
+ -git clone (paste here the copied code)
+ -git status
+ -git log(shows all previous commits)
+ -git log -p(shows what things are to be removed with all previous commits)
+ -git status
+ -git log --stat(detailed commit history includes what things has been added and what are removed)
+ -git status
+ -git log --pretty=oneline(all commits in one line0
+ -git log --pretty=short
+ -git log --pretty=full
+ -git status
+ -q(for quit)
+ -git log --since=2.days
+ -git log --since=2.weeks
+ -git log --since=2.months(all commits in previous 2 months)
+ -git status
+ -git log --pretty=format:"%h -- %an"(here %h means commit of hash and %an means auther name)
+ -git log --pretty=format:"%h -- %ae"(here %h means commit of hash and %an means auther email)
+ -git status
+ -----------------------------------------------------------------------------------------------------
+ -git restore --staged <file>(to unstage working directory)
+ -git checkout --<file>(by mistake you changed your file and wants to restore it)
+ -git checkout -f(to merge your woking directory with the previous once)
+ -git status
+------------------------------------------------------------------------------------
+ -git status
+ -git clone(paste here)
+----------------------------------------------
+ -git config --global alias.st status(we can short out any of the larger command eg- status is short out as st)
+ -git st or git status(both gives same output)-use git st for consuming time
+ -git config --global alias.ci commit(we can short out any of the larger command eg- commit is short out as ci)
+ -git ci or git commit(both gives same output)
+-------------------------------------------------------------------------------------------------------------------------
+
+ -git checkout -b (branch name eg-develop mukul)-create a new branch
+ -git checkout master(come back to the master branch)
+ -git branch(shows all your branch name)
+------------------------------------------------------------------------------
+# Under git bash-
+ -git status
+ -rm -rf .git(for deleting the git directory)
+ -git status(fatal: not a git repository)
+-------------------------------------------------------
+# Under VS Code-Open new terminal
+ -git status(fatal: not a git repository)
+ -git init
+ -git status
+ -git add .
+ -git status
+ -git commit -m "Initial commit"
+ -git status
+ -git checkout -b tryFeature
+ -git status
+# If you are edit something under working directory of tryFeature branch -
+ -git status
+# In case you need to urgent changed under the master branch then-
+ -git add .
+ -git commit -m "broken features"
+ -git status
+--Now run the following command ----
+ -git checkout master(come back to the master branch)
+ -git status
+# Now you can edit anything you want to change under your master branch -
+ -git status 
+ -git add .
+ -git commit -m "Added about"
+ -git status
+# You can now come back to your tryFeature branch-
+ -git checkout tryFeature
+ -git status
+--You can now edit anything you want to change under your tryFeature branch -
+ -git status
+ -git add .
+ -git commit -m "beautify the structure"
+ -git status
+ -git checkout master
+ -git status
+ -git branch(all branches will be shown)
+ -git checkout tryFeature 
+ -git commit -a -m "Made changes to dropdown"(skipping the staging area)
+ -git checkout master
+ -git merge tryFeature(to merge tryFeature branch changes into your master branch but you need to select the type of changes i.e current change or incomming change)
+ -git status (you have unmergrd path)
+ -git add .
+ -git commit
+--Press Esc+:wq+Enter(this command merge branch tryFeature into master branch
+ -git status
+------------------------------------------
+ -git branch -v(this command shows the following)
+ * master      commit hash     comit message
+   develop       34v566y      "This will be fixed"
+ -git branch --merged(already merged branches)
+ -git branch --no-merged(not already merged branches)
+ -git branch -d develop(gives error if develop branch is not merged)
+ -git branch -D develop(gives no error and develop branch is to be deleted)
+ 
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+
+
+
+
+ 
+ 
+
+
+
+
+
+
+
+
+
+
+
   </body>
 </html>
